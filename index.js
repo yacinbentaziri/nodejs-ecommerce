@@ -22,8 +22,7 @@ const app = express()
 
 const connection = async () => {
     try {
-        const mongo = 'mongodb+srv://yacinbentaziri:hFDPIItUGOjDB0Gs@cluster0.ksyq0ck.mongodb.net/?retryWrites=true&w=majority'
-        await mongoose.connect(mongo)
+        await mongoose.connect(process.env.MONGO)
         console.log("connect to mongodb")
     } catch (error) {
         throw error
@@ -32,7 +31,7 @@ const connection = async () => {
 
 // Middleware
 app.use(cors({
-    origin: 'https://reactjs-ecommerce-delta.vercel.app',
+    origin: 'https://reactjs-ecommerce-seven.vercel.app',
     credentials: true,
 }))
 app.use(bodyParser.json())
@@ -51,7 +50,7 @@ app.use("/api/payment", paymentRoute)
 app.use("/api/order", orderRoute)
 app.use("/api/user", userRoute)
 
-app.listen("8000", () => {
+app.listen(process.env.PORT, () => {
     connection()
     console.log("server running on port 8000");
 })
