@@ -3,6 +3,6 @@
     "name": "nodejs-ecommerce",
     "public": true,
     "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/(.*)", "dest": "./routes/*.js" }]
+    "routes": [{ "src": "./routes/*.js", "dest": "./index.js" }]
   }
   
