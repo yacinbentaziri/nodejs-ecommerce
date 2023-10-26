@@ -22,7 +22,8 @@ const app = express()
 
 const connection = async () => {
     try {
-        await mongoose.connect(process.env.MONGO)
+        const mongo = 'mongodb+srv://yacinbentaziri:hFDPIItUGOjDB0Gs@cluster0.ksyq0ck.mongodb.net/?retryWrites=true&w=majority'
+        await mongoose.connect(mongo)
         console.log("connect to mongodb")
     } catch (error) {
         throw error
