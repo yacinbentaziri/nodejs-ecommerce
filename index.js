@@ -51,7 +51,7 @@ app.use("/api/payment", paymentRoute)
 app.use("/api/order", orderRoute)
 app.use("/api/user", userRoute)
 
-app.listen(process.env.PORT, () => {
+app.listen("8000", () => {
     connection()
     console.log("server running on port 8000");
 })
