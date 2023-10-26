@@ -32,7 +32,7 @@ const connection = async () => {
 
 // Middleware
 app.use(cors({
-    origin: 'https://nodejs-ecommerce-seven.vercel.app',
+    origin: 'https://reactjs-ecommerce-delta.vercel.app/',
     credentials: true,
 }))
 app.use(bodyParser.json())
