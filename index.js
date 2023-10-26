@@ -22,7 +22,7 @@ const app = express()
 
 const connection = async () => {
     try {
-        await mongoose.connect(process.env.MONGO)
+        await mongoose.connect(process.env.MONGODB_URI)
         console.log("connect to mongodb")
     } catch (error) {
         throw error
