@@ -9,8 +9,8 @@ export const send = async (req, res) => {
             "amount": req.body.amount,
             "accept_card": "true",
             "session_timeout_secs": 1200,
-            "success_link": "http://localhost:3000/paymentstatus",
-            "fail_link": "http://localhost:3000/paymentstatus",
+            "success_link": "https://reactjs-ecommerce-delta.vercel.app/paymentstatus",
+            "fail_link": "https://reactjs-ecommerce-delta.vercel.app/paymentstatus",
             "developer_tracking_id": "8fcc35e0-6b66-4a89-8e09-12e9029e47c9"
         }
         const resp = await axios.post(url, payload)
