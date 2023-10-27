@@ -54,9 +54,9 @@ app.use("/api/order", orderRoute)
 app.use("/api/user", userRoute)
 
 
-/*mongoose.connection.on("connected", () => {
+mongoose.connection.on("connected", () => {
     console.log("mongo connected");
 })
 mongoose.connection.on("disconnected", () => {
     console.log("mongo disconnected");
-})*/
+})
