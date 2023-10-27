@@ -45,7 +45,10 @@ export const signin = async (req, res) => {
                 })
                 res.cookie("refresh_token", refresh_token, {
                     httpOnly: true,
-                    secure: true
+                    secure: true,
+                    domain: ".reactjs-ecommerce-delta.vercel.app",
+                    path: "/",
+                    sameSite: "Lax"
                 })
                 return res.status(200).json({
                     msg: "User does found.",
