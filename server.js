@@ -18,7 +18,10 @@ import path from "path"
 
 dotenv.config()
 const app = express()
-
+app.listen(process.env.PORT, () => {
+    connection()
+    console.log("server running on port 8000");
+})
 
 const connection = async () => {
     try {
@@ -50,10 +53,7 @@ app.use("/api/payment", paymentRoute)
 app.use("/api/order", orderRoute)
 app.use("/api/user", userRoute)
 
-app.listen(process.env.PORT, () => {
-    connection()
-    console.log("server running on port 8000");
-})
+
 /*mongoose.connection.on("connected", () => {
     console.log("mongo connected");
 })
