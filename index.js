@@ -18,14 +18,14 @@ import path from "path"
 
 dotenv.config()
 const app = express()
-app.listen("8000", () => {
+app.listen(process.env.PORT, () => {
     connection()
-    console.log("server running on port 8000");
+    console.log("server running on port "+ process.env.PORT);
 })
 
 const connection = async () => {
     try {
-        await mongoose.connect("mongodb+srv://vercel-admin-user:ynSC1FJz76PRgbww@cluster0.ksyq0ck.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        await mongoose.connect(process.env.MONGODB_URI)
         console.log("connect to mongodb")
     } catch (error) {
         throw error
