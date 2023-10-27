@@ -38,7 +38,10 @@ export const signin = async (req, res) => {
                 const refresh_token = jwt.sign({ id: response._id, isAdmin: false }, process.env.REFRESH_TOKEN)
                 res.cookie("access_token", access_token, {
                     httpOnly: true,
-                    secure: true
+                    secure: true,
+                    domain: ".reactjs-ecommerce-delta.vercel.app",
+                    path: "/",
+                    sameSite: "Lax"
                 })
                 res.cookie("refresh_token", refresh_token, {
                     httpOnly: true,
