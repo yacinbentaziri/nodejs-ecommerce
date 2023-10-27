@@ -16,16 +16,16 @@ import cors from "cors"
 import path from "path"
 
 
-//dotenv.config()
+dotenv.config()
 const app = express()
-app.listen("8000", () => {
+app.listen(process.env.PORT, () => {
     connection()
     console.log("server running on port 8000");
 })
 
 const connection = async () => {
     try {
-        await mongoose.connect("mongodb+srv://yacinbentaziri:hFDPIItUGOjDB0Gs@cluster0.ksyq0ck.mongodb.net/?retryWrites=true&w=majority")
+        await mongoose.connect(process.env.MONGODB_URI)
         console.log("connect to mongodb")
     } catch (error) {
         throw error
