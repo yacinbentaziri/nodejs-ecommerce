@@ -1,5 +1,5 @@
 import express from "express"
-import dotenv from "dotenv"
+//import dotenv from "dotenv"
 import mongoose, { connect } from "mongoose"
 
 import authRoute from "./routes/auth.js"
@@ -16,16 +16,16 @@ import cors from "cors"
 import path from "path"
 
 
-dotenv.config()
+//dotenv.config()
 const app = express()
-app.listen(process.env.PORT, () => {
+app.listen("8000", () => {
     connection()
     console.log("server running on port 8000");
 })
 
 const connection = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI)
+        await mongoose.connect("mongodb+srv://yacinbentaziri:hFDPIItUGOjDB0Gs@cluster0.ksyq0ck.mongodb.net/?retryWrites=true&w=majority")
         console.log("connect to mongodb")
     } catch (error) {
         throw error
@@ -34,7 +34,7 @@ const connection = async () => {
 
 // Middleware
 app.use(cors({
-    origin: 'https://reactjs-ecommerce-seven.vercel.app',
+    origin: '*',
     credentials: true,
 }))
 app.use(bodyParser.json())
