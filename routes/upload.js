@@ -16,7 +16,10 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage })
 
-router.post("/:id", verifyAccessToken, verifyUser, upload.single("image"), (req, res) => {
+//router.post("/:id", verifyAccessToken, verifyUser, upload.single("image"), (req, res) => {
+
+
+router.post("/:id", upload.single("image"), (req, res) => {
     try {
         const { file } = req
         /*resp.send({
